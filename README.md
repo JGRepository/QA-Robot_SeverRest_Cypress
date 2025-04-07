@@ -116,7 +116,7 @@ npx cypress run
 ```bash
 cypress/
 ├── e2e/
-│   ├── ui/           # Testes de interface
+│   ├── web/           # Testes de interface
 │   └── api/          # Testes de API
 ├── fixtures/         # Mocks e dados de teste
 ├── support/          # Configuração e comandos customizados

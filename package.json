@@ -3,7 +3,8 @@
     "cypress": "^14.2.1"
   },
   "scripts": {
-    "use-node": "nvm use $(cat .nvmrc)"
+    "use-node": "nvm use $(cat .nvmrc)",
+     "cypress:open": "cypress open --ignore-certificate-errors"
   }
 }
 
