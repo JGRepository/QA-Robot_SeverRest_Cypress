@@ -1,10 +1,10 @@
 {
   "devDependencies": {
-    "cypress": "^14.2.1"
+    "cypress": "^14.2.1",
+    "cypress-file-upload": "^5.0.8"
   },
   "scripts": {
     "use-node": "nvm use $(cat .nvmrc)",
-     "cypress:open": "cypress open --ignore-certificate-errors"
+    "cypress:open": "cypress open --ignore-certificate-errors"
   }
 }
-

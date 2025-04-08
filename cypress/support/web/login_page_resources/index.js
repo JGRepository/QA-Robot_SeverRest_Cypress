@@ -15,6 +15,11 @@ class Login {
   eClicoNoBotaoEntrar() {
     cy.get(el.entrar).click()
   }
+  entaoDeveApareceerMsgErro(textCompared){
+    cy.get(el.errorMsg).should('be.visible').invoke('text').then((text) => {
+    expect(text).to.be.equal(textCompared)
+    })
+    }
 }
 
 export default new Login();

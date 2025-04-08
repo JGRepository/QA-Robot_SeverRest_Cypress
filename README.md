@@ -116,13 +116,16 @@ npx cypress run
 ```bash
 cypress/
 ├── e2e/
-│   ├── web/           # Testes de interface
-│   └── api/          # Testes de API
-├── fixtures/         # Mocks e dados de teste
-├── support/          # Configuração e comandos customizados
-.cypress.config.js    # Configuração do Cypress
-.nvmrc                # Versão do Node usada
-use-node.bat          # Script para NVM no Windows
+│   ├── api/                     # Testes de API
+│   └── web/                     # Testes de interface Web
+├── fixtures/                    # Mocks e dados de teste
+├── support/                     # Configuração e comandos customizados
+│   ├── commands/                # Comandos customizados
+│       ├── api/                 # Comandos customizados de API
+│       ├── web/                 # Comandos customizados interface Web
+.cypress.config.js               # Configuração do Cypress
+.nvmrc                           # Versão do Node usada
+use-node.bat                     # Script para NVM no Windows
 package.json
 ```
 
