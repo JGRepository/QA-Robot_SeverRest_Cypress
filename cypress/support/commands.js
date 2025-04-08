@@ -1,4 +1,6 @@
-Cypress.Commands.add('cadastrarUsuario', () => { 
+const emailCadastrado = 'cypress@example.com'
+
+Cypress.Commands.add('cadastrarUsuario', () => {
   cy.fixture('cadastro_usuario').then((cadastro_usuario) => {
     return cy.request({
       method: 'POST',
@@ -19,73 +21,65 @@ Cypress.Commands.add('cadastrarUsuario', () => {
 });
 
 Cypress.Commands.add('realizarLogin', () => {
-  let token;
   cy.fixture('login').then((login) => {
-  cy.request({
+    cy.request({
       method: 'POST',
-          url: '/login',
-          body: 
-             login
-          ,
-    }).then((response) => { 
-      return response 
+      url: '/login',
+      body:
+        login
+      ,
+    }).then((response) => {
+      return response
     })
   })
 })
 
 
 
-// Cypress.Commands.add('cadastrarUsuarioInvalido', (nome, email, password, administrador) => { 
-//     cy.api({
-//         method: 'POST',
-//         url: '/usuarios',
-//         body: {
-//             "nome": nome,
-//             "email": email,
-//             "password": password,
-//             "administrador": administrador
-//           },
-//         failOnStatusCode: false
-//     }).then((response) => { return response })
-// })
+Cypress.Commands.add('retornarTodosUsuarios', () => {
 
-// Cypress.Commands.add('buscarUsuarioEspecifico', (user_id) => { 
-//     cy.api({
-//         method: 'GET',
-//         url: `/usuarios/${user_id}`,
-//         failOnStatusCode: false
-//       }).then((response) => { return response })
-// })
+  cy.request({
+    method: 'GET',
+    url: `/usuarios`,
+    failOnStatusCode: false
+  }).then((response) => {
+    return response
+  })
+})
 
-// Cypress.Commands.add('buscarTodosUsuarios', () => { 
-//     cy.fixture("config.json").then((url) => {
-//         cy.api({
-//             method: 'GET',
-//             url: `${url.servidor}${url.users}`,
-//             failOnStatusCode: false
-//           }).then((response) => { return response })
-//     })
-// })
 
-// Cypress.Commands.add('realizarLogin', () => { 
-//     cy.api({
-//         method: 'POST',
-//             url: '/login',
-//             body: {
-//                 email: Cypress.env('emailValido'),
-//                 password: Cypress.env('senhaValida')
-//             },
-//       }).then((response) => { return response })
-// })
+Cypress.Commands.add('buscarUsuarioPorEmail', (email) => {
+  return cy.retornarTodosUsuarios().then(response => {
+    const usuario = response.body.usuarios.find(u => u.email === email);
+    return usuario?._id;
+  });
+});
 
-// Cypress.Commands.add('loginInvalido', (email, password) => { 
-//     cy.api({
-//         method: 'POST',
-//             url: '/login',
-//             body: {
-//                 email: email,
-//                 password: password
-//             },
-//             failOnStatusCode: false
-//       }).then((response) => { return response })
-// })
+
+Cypress.Commands.add('atualizarUsuario', (id) => {
+  cy.fixture('cadastro_usuario').then((cadastro_usuario) => {
+    return cy.request({
+      method: 'PUT',
+      url: '/usuarios/' + id,
+      body: cadastro_usuario
+    }).then((response) => {
+      return response
+    })
+  })
+})
+
+Cypress.Commands.add('deletarUsuario', (id) => {
+  cy.request({
+    url: 'usuarios/' + id,
+    method: 'DELETE',
+    failOnStatusCode: false
+  }).then((response) => {
+    return response
+  })
+})
+
+Cypress.Commands.add('normalizarUsuarioParaTeste',() => {
+  cy.buscarUsuarioPorEmail(emailCadastrado).then((id) => {
+  cy.deletarUsuario(id)
+})
+})
