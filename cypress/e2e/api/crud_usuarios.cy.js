@@ -1,6 +1,6 @@
 /// <reference types= "cypress"/>
 
-describe('Teste CRUD | Busca | Alteração | Deleção | de Usuários ', () => {
+describe('API - Teste CRUD | Busca | Alteração | Deleção | de Usuários ', () => {
     before(() => {
         cy.normalizarUsuarioParaTeste().then((response) => {
           expect(response.status).to.equal(200);
@@ -8,7 +8,7 @@ describe('Teste CRUD | Busca | Alteração | Deleção | de Usuários ', () => {
         })
       })
 
-    it('Teste CRUD', () => {
+    it('API - Teste CRUD', () => {
        cy.cadastrarUsuario()
        cy.buscarUsuarioPorEmail('cypress@example.com').then((id) => {
         expect(id).to.not.be.empty

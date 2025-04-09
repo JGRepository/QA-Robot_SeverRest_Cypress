@@ -1,6 +1,6 @@
 /// <reference types= "cypress"/>
 
-describe('Cadastro de Usuário', () => {
+describe('API - Cadastro de Usuário', () => {
   before(() => {
     cy.normalizarUsuarioParaTeste().then((response) => {
       expect(response.status).to.equal(200);
@@ -10,7 +10,7 @@ describe('Cadastro de Usuário', () => {
   
   
   
-  it('Cadastro Usuário', () => {
+  it('API - Cadastro Usuário', () => {
     cy.cadastrarUsuario().then((res) => {
       if (res.status === 201) {
         cy.log('Usuário cadastrado com sucesso');

@@ -1,8 +1,8 @@
 /// <reference types= "cypress"/>
 
-describe('Testes Busca de Usuários', () => {
+describe('API - Testes Busca de Usuários', () => {
 
-    it('Retornar todos os usuários cadastrados', () => {
+    it('API - Retornar todos os usuários cadastrados', () => {
 
         cy.retornarTodosUsuarios()
             .then((response) => {
@@ -11,7 +11,7 @@ describe('Testes Busca de Usuários', () => {
             })
     })
 
-    it('Retornar Usuário de Teste', () => {
+    it('API - Retornar Usuário de Teste', () => {
         cy.cadastrarUsuario()
         cy.buscarUsuarioPorEmail('cypress@example.com')
             .then((id) => {

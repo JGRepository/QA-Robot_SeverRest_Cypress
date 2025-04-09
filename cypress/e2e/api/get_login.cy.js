@@ -1,6 +1,6 @@
 /// <reference types= "cypress"/>
 
-describe('Testes Login', () => {
+describe('API - Testes Login', () => {
     after(() => {
         cy.normalizarUsuarioParaTeste().then((response)=>{
             expect(response.status).to.equal(200);
@@ -8,7 +8,7 @@ describe('Testes Login', () => {
 
         })
     });
-    it('Login com sucesso', () => {
+    it('API - Login com sucesso', () => {
         cy.cadastrarUsuario()
         cy.realizarLogin()
             .then((response) => {

@@ -4,11 +4,11 @@ import Home from "../../../support/web/home_page_resources";
 import ListaProduto from "../../../support/web/lista_produtos_resources/index";
 
 
-describe('Testes Página de Login', () => {
+describe('WEB - Testes Página de Login', () => {
     before(() => {
         cy.normalizarProdutoParaTeste()
     });
-    it('Realizando Login com Sucesso', () => {
+    it('WEB - Realizando Login com Sucesso', () => {
         cy.loginComSucesso()
         Home.abroAOpcaoDoMenu('cadastroProdutos')
         CadastroProdutos.euPreenchoNomeDoProduto('CypressProduto');

@@ -3,11 +3,11 @@
 import Login from "../../../support/web/login_page_resources/index";
 import Home from "../../../support/web/home_page_resources/index"
 
-describe('Testes Página de Login', () => {
+describe('WEB - Testes Página de Login', () => {
     beforeEach(() => {
         cy.normalizarUsuarioParaTeste()
     });
-    it('Realizando Login com Sucesso', () => {
+    it('WEB - Realizando Login com Sucesso', () => {
         cy.cadastrarUsuario();
         Login.euAcessoAPaginaDeLogin();
         Login.eDigitoMeuEmail('cypress@example.com');
@@ -17,18 +17,18 @@ describe('Testes Página de Login', () => {
 
     });
 
-    it('Realizando Login com Erro de Senha', () => {
+    it('WEB - Realizando Login com Erro de Senha', () => {
         cy.cadastrarUsuario();
         Login.euAcessoAPaginaDeLogin();
         Login.eDigitoMeuEmail('cypress@example.com');
         Login.eDigitoMinhaSenha('teste');
         Login.eClicoNoBotaoEntrar();
         Login.entaoDeveAparecerMsg("Email e/ou senha inválidos");
-        
+
 
     });
 
-    it('Realizando Cadastro', () => {
+    it('WEB - Realizando Cadastro', () => {
         Login.euAcessoAPaginaDeLogin();
         Login.eClicoNoBotaoCadastrar()
         Login.eDigitoMeuNome('Cypress');
@@ -37,7 +37,7 @@ describe('Testes Página de Login', () => {
         Login.eClicoNoCheckboxDeAdmin();
         Login.eClicoNoBotaoCadastrar()
         Login.entaoDeveAparecerMsg('Cadastro realizado com sucesso')
-        
+
 
     });
 
