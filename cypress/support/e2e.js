@@ -17,3 +17,4 @@
 import '../support/commands/api_commands'
 import '../support/commands/web_commands'
 import 'cypress-file-upload';
+require('cypress-xpath');

@@ -20,6 +20,10 @@ class Login {
     expect(text).to.be.equal(textCompared)
     })
     }
+
+    eClicoNoBotaoCadastrar(){
+      
+    }
 }
 
 export default new Login();

@@ -25,5 +25,15 @@ describe('Testes Página de Login', () => {
 
     });
 
+    // it.only('Realizando Cadastro', () => {
+    //     Login.euAcessoAPaginaDeLogin();
+    //     Login.eDigitoMeuEmail('cypress@example.com');
+    //     Login.eDigitoMinhaSenha('teste');
+    //     Login.eClicoNoBotaoEntrar();
+    //     Login.entaoDeveApareceerMsgErro("Email e/ou senha inválidos");
+        
+
+    // });
+
 
 });

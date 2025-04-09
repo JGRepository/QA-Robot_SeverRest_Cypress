@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 import CadastroProdutos from "../../../support/web/cadastro_produtos_resources/index";
 import Home from "../../../support/web/home_page_resources";
+import ListaProduto from "../../../support/web/lista_produtos_resources/index";
 
 
 describe('Testes Página de Login', () => {
@@ -13,5 +14,6 @@ describe('Testes Página de Login', () => {
         CadastroProdutos.euPreenchoQuantidadeDoProduto('1000')
         CadastroProdutos.euRealizoUploadDeImagem()
         CadastroProdutos.euClicoNoBotaoCadastrar()
+        ListaProduto.pesquisoPeloNomeDoProduto('CypressProduto')
     });
 });
