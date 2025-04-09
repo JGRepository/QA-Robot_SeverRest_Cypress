@@ -17,4 +17,6 @@
 import '../support/commands/api_commands'
 import '../support/commands/web_commands'
 import 'cypress-file-upload';
+import 'cypress-mochawesome-reporter/register';
+
 require('cypress-xpath');
