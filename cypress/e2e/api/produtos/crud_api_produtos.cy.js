@@ -1,6 +1,6 @@
 /// <reference types= "cypress"/>
 
-describe('Teste CRUD | Busca | Alteração | Deleção | de Produtos ', () => {
+describe('API - Teste CRUD | Busca | Alteração | Deleção | de Produtos ', () => {
     
     before(() => {
         cy.log('Verifica se existe algum produto cadastrado e excluí para não ocorrer duplicidades / erros')
