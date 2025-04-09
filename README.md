@@ -131,6 +131,13 @@ package.json
 
 ---
 
+### 📊 Pipeline
+
+Pipeline integrada no Github Actions, executando esteira de testes WEB e API, com geração de relatórios após execução.
+
+---
+
 ## 📄 Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
+
