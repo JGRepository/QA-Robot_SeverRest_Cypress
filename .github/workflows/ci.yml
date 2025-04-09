@@ -1,0 +1,18 @@
+name: E2E Testes | API & WEB
+on: push
+jobs:
+  cypress-run:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cypress-io/github-action@v6
+      - uses: actions/upload-artifact@v4
+        # if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
