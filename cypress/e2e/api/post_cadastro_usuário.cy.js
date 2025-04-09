@@ -2,10 +2,15 @@
 
 describe('Cadastro de Usuário', () => {
   before(() => {
-    cy.normalizarUsuarioParaTeste()
-  });
+    cy.normalizarUsuarioParaTeste().then((response) => {
+      expect(response.status).to.equal(200);
+      expect(response.body.message).to.not.be.empty
+    })
+  })
   
-  it('tenta cadastrar um usuário que pode já existir', () => {
+  
+  
+  it('Cadastro Usuário', () => {
     cy.cadastrarUsuario().then((res) => {
       if (res.status === 201) {
         cy.log('Usuário cadastrado com sucesso');
@@ -14,6 +19,5 @@ describe('Cadastro de Usuário', () => {
       }
     });
   });
-
-
-})
+  
+});

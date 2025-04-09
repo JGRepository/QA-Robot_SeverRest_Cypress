@@ -2,8 +2,11 @@
 
 describe('Teste CRUD | Busca | Alteração | Deleção | de Usuários ', () => {
     before(() => {
-        cy.normalizarUsuarioParaTeste()
-    });
+        cy.normalizarUsuarioParaTeste().then((response) => {
+          expect(response.status).to.equal(200);
+          expect(response.body.message).to.not.be.empty
+        })
+      })
 
     it('Teste CRUD', () => {
        cy.cadastrarUsuario()

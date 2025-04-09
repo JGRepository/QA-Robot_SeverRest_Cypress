@@ -4,6 +4,9 @@ import Login from "../../../support/web/login_page_resources/index";
 import Home from "../../../support/web/home_page_resources/index"
 
 describe('Testes Página de Login', () => {
+    beforeEach(() => {
+        cy.normalizarUsuarioParaTeste()
+    });
     it('Realizando Login com Sucesso', () => {
         cy.cadastrarUsuario();
         Login.euAcessoAPaginaDeLogin();
@@ -20,20 +23,23 @@ describe('Testes Página de Login', () => {
         Login.eDigitoMeuEmail('cypress@example.com');
         Login.eDigitoMinhaSenha('teste');
         Login.eClicoNoBotaoEntrar();
-        Login.entaoDeveApareceerMsgErro("Email e/ou senha inválidos");
+        Login.entaoDeveAparecerMsg("Email e/ou senha inválidos");
         
 
     });
 
-    // it.only('Realizando Cadastro', () => {
-    //     Login.euAcessoAPaginaDeLogin();
-    //     Login.eDigitoMeuEmail('cypress@example.com');
-    //     Login.eDigitoMinhaSenha('teste');
-    //     Login.eClicoNoBotaoEntrar();
-    //     Login.entaoDeveApareceerMsgErro("Email e/ou senha inválidos");
+    it('Realizando Cadastro', () => {
+        Login.euAcessoAPaginaDeLogin();
+        Login.eClicoNoBotaoCadastrar()
+        Login.eDigitoMeuNome('Cypress');
+        Login.eDigitoMeuEmail('cypress@example.com');
+        Login.eDigitoMinhaSenhaNoCadastro('cypress');
+        Login.eClicoNoCheckboxDeAdmin();
+        Login.eClicoNoBotaoCadastrar()
+        Login.entaoDeveAparecerMsg('Cadastro realizado com sucesso')
         
 
-    // });
+    });
 
 
 });

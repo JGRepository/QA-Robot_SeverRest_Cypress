@@ -1,9 +1,15 @@
 /// <reference types= "cypress"/>
 
 describe('Testes Login', () => {
-    
-    it.only('Login com sucesso', () => {
-    
+    after(() => {
+        cy.normalizarUsuarioParaTeste().then((response)=>{
+            expect(response.status).to.equal(200);
+            expect(response.body.message).to.not.be.empty
+
+        })
+    });
+    it('Login com sucesso', () => {
+        cy.cadastrarUsuario()
         cy.realizarLogin()
             .then((response) => {
                 expect(response.status).to.equal(200);
