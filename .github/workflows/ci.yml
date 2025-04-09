@@ -2,7 +2,7 @@ name: E2E Testes | API & WEB
 on: push
 
 jobs:
-  cypress-run:
+  pipeline-all-tests-run:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,11 +19,6 @@ jobs:
 
       - name: Executar testes Cypress
         run: npx cypress run || true  
-
-      - name: Gerar relatório HTML
-        run: |
-          npx mochawesome-merge cypress/reports/*.json > mochawesome.json
-          npx marge mochawesome.json --reportDir cypress/reports/html
 
       - name: Upload de artefatos
         if: always() 
