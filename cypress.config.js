@@ -1,18 +1,20 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: "https://serverest.dev",
+    baseUrl: 'https://serverest.dev', // ou sua URL
     chromeWebSecurity: false,
     setupNodeEvents(on, config) {
-      on('before:browser:launch', (browser = {}, launchOptions) => {
-        if (browser.family === 'chromium' && browser.name !== 'electron') {
-          launchOptions.args.push('--ignore-certificate-errors');
-        }
-        return launchOptions;
-      });
-
+      require('cypress-mochawesome-reporter/plugin')(on);
       return config;
     },
+    specPattern: 'cypress/e2e/**/*.cy.{js,ts}',
+  },
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: false,
+    json: true,
   },
 });

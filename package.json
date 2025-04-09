@@ -1,8 +1,11 @@
 {
   "devDependencies": {
-    "cypress": "^14.2.1",
+    "cypress": "^14.3.0",
     "cypress-file-upload": "^5.0.8",
-    "cypress-xpath": "^2.0.1"
+    "cypress-mochawesome-reporter": "^3.4.0",
+    "cypress-xpath": "^2.0.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^6.2.0"
   },
   "scripts": {
     "use-node": "nvm use $(cat .nvmrc)",
